@@ -116,7 +116,8 @@ public class CrowdConfigurationService {
 					+ pGroupNames);
 		}
 		this.allowedGroupNames = new ArrayList<String>();
-		for (String group : pGroupNames.split("[,\\s]")) {
+		//Support spaces in group names. Groups are only comma separated
+		for (String group : pGroupNames.split(",")) {
 			if (null != group && group.trim().length() > 0) {
 				if (LOG.isLoggable(Level.FINE)) {
 					LOG.fine("-> adding allowed group name: " + group);
